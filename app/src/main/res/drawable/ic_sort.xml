@@ -1,0 +1,8 @@
+<vector android:height="24dp" android:viewportHeight="100"
+    android:viewportWidth="100" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#000" android:name="Layer 1" android:pathData="m28 35h43c0 0 2.98 3.17 0 6h-43c0 0 -4.14 -2.7 0 -6z"/>
+    <path android:fillColor="#000" android:name="Layer 1 copy" android:pathData="m28 46h43c0 0 2.98 3.17 0 6h-43c0 0 -4.14 -2.7 0 -6z"/>
+    <path android:fillColor="#000" android:name="Layer 1 copy 2" android:pathData="m28 58h43c0 0 2.98 3.17 0 6h-43c0 0 -4.14 -2.7 0 -6z"/>
+    <path android:fillColor="#000" android:name="Layer 2" android:pathData="m28 35c-4.14 3.3 0 6 0 6h43c2.98 -2.83 0 -6 0 -6zm-12.55 -5.81c-1.48 0 -2.45 1.81 -2.45 1.81v46l-8 -8c-0.46 -0.16 -0.86 -0.23 -1.22 -0.23c-2.75 0 -2.78 4.23 -2.78 4.23l13 14h3l13 -14c0.63 -3.56 -1.51 -4.11 -2.9 -4.11c-0.63 0 -1.1 0.11 -1.1 0.11l-8 9v-47c-0.94 -1.36 -1.81 -1.81 -2.55 -1.81z"/>
+    <path android:fillColor="#000" android:name="Layer 2 copy" android:pathData="m29 59c-2.98 2.83 0 6 0 6h43c4.14 -3.3 0 -6 0 -6zm54 -46 -13 14c-0.63 3.56 1.51 4.11 2.9 4.11c0.63 0 1.1 -0.11 1.1 -0.11l8 -9v47c0.94 1.36 1.81 1.81 2.55 1.81c1.48 0 2.45 -1.81 2.45 -1.81v-46l8 8c0.46 0.16 0.86 0.23 1.22 0.23c2.75 0 2.78 -4.23 2.78 -4.23l-13 -14z"/>
+</vector>

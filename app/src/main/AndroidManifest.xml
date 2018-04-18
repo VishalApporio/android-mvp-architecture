@@ -11,56 +11,56 @@
   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License
-  -->
-
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mindorks.framework.mvp">
+    package="com.apporio.ubereats">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.mindorks.framework.mvp.MvpApp"
+        android:name=".mvp.MvpApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <service android:name=".service.SyncService" />
+        <service android:name=".mvp.service.SyncService" />
 
         <activity
-            android:name="com.mindorks.framework.mvp.ui.splash.SplashActivity"
+            android:name=".mvp.ui.activity.splash.SplashActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeFullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.mindorks.framework.mvp.ui.login.LoginActivity"
+            android:name=".mvp.ui.activity.login.LoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="com.mindorks.framework.mvp.ui.main.MainActivity"
+            android:name=".mvp.ui.main.MainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="com.mindorks.framework.mvp.ui.feed.FeedActivity"
+            android:name=".mvp.ui.feed.FeedActivity"
             android:launchMode="singleTop"
-            android:parentActivityName=".ui.main.MainActivity"
+            android:parentActivityName=".mvp.ui.main.MainActivity"
             android:screenOrientation="portrait">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.main.MainActivity" />
+                android:value="com.apporio.ubereats.mvp.ui.main.MainActivity" />
         </activity>
-
+        <activity android:name=".mvp.ui.activity.register.RegisterActivity" />
+        <activity android:name=".mvp.ui.activity.home.HomeActivity" />
+        <activity android:name=".mvp.ui.activity.profile.ProfileViewActivity" />
+        <activity android:name=".mvp.ui.activity.ViewProductsActivity" />
+        <activity android:name=".mvp.ui.activity.NewProfileActivity"></activity>
     </application>
 
 </manifest>

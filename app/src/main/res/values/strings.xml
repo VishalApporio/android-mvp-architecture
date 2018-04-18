@@ -14,7 +14,7 @@
   -->
 
 <resources>
-    <string name="app_name">MvpApp</string>
+    <string name="app_name">TukIn1Hour</string>
 
     <!--Toolbar menus-->
     <string name="clear">Clear</string>
@@ -46,9 +46,12 @@
     <string name="password">Password</string>
 
     <!--Login Validation-->
-    <string name="empty_email">Please provide a non empty email.</string>
+    <string name="empty_first_name">Please enter first name.</string>
+    <string name="empty_last_name">Please enter last name.</string>
+    <string name="empty_email">Please enter email.</string>
+    <string name="empty_phone_no">Please enter phone no.</string>
     <string name="invalid_email">Please provide a valid email.</string>
-    <string name="empty_password">Please provide a non empty password.</string>
+    <string name="empty_password">Please enter password.</string>
 
     <!--about fragment-->
     <string name="project_info">This sample app implements MVP architecture using Dagger2, GreenDao, RxJava, FastAndroidNetworking and PlaceholderView</string>
@@ -84,5 +87,45 @@
     <string name="empty_screen">We do not have anything\nhere right now.</string>
     <string name="please_retry">Please Retry</string>
     <string name="retry">Retry</string>
+
+
+    /// Uber eats /////
+
+
+    <string name="menu_home">Home</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_orders">Orders</string>
+    <string name="menu_settings">Settings</string>
+
+
+    ///// HomeActivity //////
+    <string name="HOME_ACTIVITY_button_login">LOG IN WITH UBER</string>
+    <string name="HOME_ACTIVITY_button_register">REGISTER</string>
+
+
+    /// LoginActivity ///////
+    <string name="LOGIN_ACTIVITY_login_with_text">LOG IN WITH YOUR UBER ACCOUNT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="text_home">Home Fragment</string>
+    <string name="text_notifications">Notifications Fragment</string>
+    <string name="text_search">Search Fragment</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="google_map_key">AIzaSyCTAg2TXt8AiswL_Ro6k76c_p1bisIWxEU</string>
+
+
+    //LocationManagerClass
+    <string name="enable_app_location">Please enable your location to use this app services</string>
+    <string name="open_location_settings">Open Location Settings</string>
+    <string name="cancel">Cancel</string>
+
+    <string-array name="errorRegisterAdmin">
+        <item>Username is invalid</item>
+        <item>Phone Number is invalid</item>
+        <item>Email ID is invalid</item>
+        <item>Password is invalid</item>
+    </string-array>
+
 
 </resources>

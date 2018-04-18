@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F4"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/ll_toolbar"
+        layout="@layout/layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_open_panel"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/ll_toolbar"
+        android:background="@color/color_white"
+        android:gravity="start"
+        android:onClick="onSortingLayoutClick"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_sort" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Sort Restaurants"
+            android:textColor="#9D9DA3" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_below="@+id/rl_open_panel"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/activity_main_swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rl_open_panel">
+
+        <com.mindorks.placeholderview.PlaceHolderView
+            android:id="@+id/place_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_open_panel"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="10dp"
+            android:background="#F2F2F4" />
+
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</RelativeLayout>
