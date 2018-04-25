@@ -5,11 +5,13 @@ import android.support.v4.view.ViewPager;
 
 import com.apporio.ubereats.R;
 import com.apporio.ubereats.mvp.adapters.PromotionalAdapter;
+import com.apporio.ubereats.mvp.data.network.model.ViewResturanentsModel;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -31,9 +33,12 @@ public class PromotionsViewClass {
     private static int currentPage = 0;
     private static final Integer[] XMEN = {R.drawable.image1, R.drawable.image2, R.drawable.image3};
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
+    ViewResturanentsModel.ResponseBean.PromotionalDataBean mpromotional_data;
 
-    public PromotionsViewClass(Context context) {
+
+    public PromotionsViewClass(Context context, ViewResturanentsModel.ResponseBean.PromotionalDataBean promotionalDataBean) {
         mContext = context;
+        mpromotional_data = promotionalDataBean;
     }
 
     @Resolve
@@ -43,11 +48,15 @@ public class PromotionsViewClass {
     }
 
     private void init() {
-        for (int i = 0; i < XMEN.length; i++)
-            XMENArray.add(XMEN[i]);
+//        for (int i = 0; i < XMEN.length; i++)
+//            XMENArray.add(XMEN[i]);
 
-        mPager.setAdapter(new PromotionalAdapter(mContext, XMENArray));
-        indicator.setViewPager(mPager);
+//        mPager.setAdapter(new PromotionalAdapter(mContext, XMENArray));
+//        indicator.setViewPager(mPager);
+
+            mPager.setAdapter(new PromotionalAdapter(mContext, mpromotional_data));
+            indicator.setViewPager(mPager);
+
 
 //        // Auto start of viewpager
 //        final Handler handler = new Handler();

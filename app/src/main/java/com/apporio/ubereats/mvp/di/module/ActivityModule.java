@@ -23,44 +23,57 @@ import com.apporio.ubereats.mvp.data.network.model.BlogResponse;
 import com.apporio.ubereats.mvp.data.network.model.OpenSourceResponse;
 import com.apporio.ubereats.mvp.di.ActivityContext;
 import com.apporio.ubereats.mvp.di.PerActivity;
+import com.apporio.ubereats.mvp.location.LocationSession;
 import com.apporio.ubereats.mvp.ui.about.AboutMvpPresenter;
-import com.apporio.ubereats.mvp.ui.feed.FeedMvpPresenter;
-import com.apporio.ubereats.mvp.ui.feed.FeedMvpView;
-import com.apporio.ubereats.mvp.ui.feed.FeedPagerAdapter;
-import com.apporio.ubereats.mvp.ui.feed.blogs.BlogAdapter;
-import com.apporio.ubereats.mvp.ui.feed.blogs.BlogMvpPresenter;
-import com.apporio.ubereats.mvp.ui.feed.blogs.BlogPresenter;
-import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourceAdapter;
-import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourceMvpPresenter;
-import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourcePresenter;
+import com.apporio.ubereats.mvp.ui.about.AboutMvpView;
+import com.apporio.ubereats.mvp.ui.about.AboutPresenter;
+import com.apporio.ubereats.mvp.ui.activity.deliveryLocation.DeliveryLocationMvpPresenter;
+import com.apporio.ubereats.mvp.ui.activity.deliveryLocation.DeliveryLocationMvpView;
+import com.apporio.ubereats.mvp.ui.activity.deliveryLocation.DeliveryLocationPresenter;
 import com.apporio.ubereats.mvp.ui.activity.home.HomeMvpPresenter;
 import com.apporio.ubereats.mvp.ui.activity.home.HomeMvpView;
 import com.apporio.ubereats.mvp.ui.activity.home.HomePresenter;
+import com.apporio.ubereats.mvp.ui.activity.login.LoginMvpPresenter;
 import com.apporio.ubereats.mvp.ui.activity.login.LoginMvpView;
 import com.apporio.ubereats.mvp.ui.activity.login.LoginPresenter;
-import com.apporio.ubereats.mvp.ui.fragments.settings.SettingMvpPresenter;
-import com.apporio.ubereats.mvp.ui.fragments.settings.SettingsMvpView;
-import com.apporio.ubereats.mvp.ui.fragments.settings.SettingsPresenter;
-import com.apporio.ubereats.mvp.ui.main.MainMvpView;
-import com.apporio.ubereats.mvp.ui.main.rating.RatingDialogMvpPresenter;
-import com.apporio.ubereats.mvp.ui.main.rating.RatingDialogPresenter;
+import com.apporio.ubereats.mvp.ui.activity.profile.ProfileMvpPresenter;
+import com.apporio.ubereats.mvp.ui.activity.profile.ProfileMvpView;
+import com.apporio.ubereats.mvp.ui.activity.profile.ProfilePresenter;
 import com.apporio.ubereats.mvp.ui.activity.register.RegisterMvpPresenter;
 import com.apporio.ubereats.mvp.ui.activity.register.RegisterMvpView;
 import com.apporio.ubereats.mvp.ui.activity.register.RegisterPresenter;
 import com.apporio.ubereats.mvp.ui.activity.splash.SplashMvpPresenter;
-import com.apporio.ubereats.mvp.utils.rx.AppSchedulerProvider;
-import com.apporio.ubereats.mvp.utils.rx.SchedulerProvider;
-import com.apporio.ubereats.mvp.ui.about.AboutMvpView;
-import com.apporio.ubereats.mvp.ui.about.AboutPresenter;
-import com.apporio.ubereats.mvp.ui.feed.FeedPresenter;
-import com.apporio.ubereats.mvp.ui.feed.blogs.BlogMvpView;
-import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourceMvpView;
-import com.apporio.ubereats.mvp.ui.activity.login.LoginMvpPresenter;
-import com.apporio.ubereats.mvp.ui.main.MainMvpPresenter;
-import com.apporio.ubereats.mvp.ui.main.MainPresenter;
-import com.apporio.ubereats.mvp.ui.main.rating.RatingDialogMvpView;
 import com.apporio.ubereats.mvp.ui.activity.splash.SplashMvpView;
 import com.apporio.ubereats.mvp.ui.activity.splash.SplashPresenter;
+import com.apporio.ubereats.mvp.ui.activity.viewProducts.ViewProductsMvpPresenter;
+import com.apporio.ubereats.mvp.ui.activity.viewProducts.ViewProductsMvpView;
+import com.apporio.ubereats.mvp.ui.activity.viewProducts.ViewProductsPresenter;
+import com.apporio.ubereats.mvp.ui.feed.FeedMvpPresenter;
+import com.apporio.ubereats.mvp.ui.feed.FeedMvpView;
+import com.apporio.ubereats.mvp.ui.feed.FeedPagerAdapter;
+import com.apporio.ubereats.mvp.ui.feed.FeedPresenter;
+import com.apporio.ubereats.mvp.ui.feed.blogs.BlogAdapter;
+import com.apporio.ubereats.mvp.ui.feed.blogs.BlogMvpPresenter;
+import com.apporio.ubereats.mvp.ui.feed.blogs.BlogMvpView;
+import com.apporio.ubereats.mvp.ui.feed.blogs.BlogPresenter;
+import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourceAdapter;
+import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourceMvpPresenter;
+import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourceMvpView;
+import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourcePresenter;
+import com.apporio.ubereats.mvp.ui.fragments.homefragment.HomeFragmentMvpPresenter;
+import com.apporio.ubereats.mvp.ui.fragments.homefragment.HomeFragmentMvpView;
+import com.apporio.ubereats.mvp.ui.fragments.homefragment.HomeFragmentPresenter;
+import com.apporio.ubereats.mvp.ui.fragments.settings.SettingMvpPresenter;
+import com.apporio.ubereats.mvp.ui.fragments.settings.SettingsMvpView;
+import com.apporio.ubereats.mvp.ui.fragments.settings.SettingsPresenter;
+import com.apporio.ubereats.mvp.ui.main.MainMvpPresenter;
+import com.apporio.ubereats.mvp.ui.main.MainMvpView;
+import com.apporio.ubereats.mvp.ui.main.MainPresenter;
+import com.apporio.ubereats.mvp.ui.main.rating.RatingDialogMvpPresenter;
+import com.apporio.ubereats.mvp.ui.main.rating.RatingDialogMvpView;
+import com.apporio.ubereats.mvp.ui.main.rating.RatingDialogPresenter;
+import com.apporio.ubereats.mvp.utils.rx.AppSchedulerProvider;
+import com.apporio.ubereats.mvp.utils.rx.SchedulerProvider;
 
 import java.util.ArrayList;
 
@@ -131,8 +144,27 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
+    DeliveryLocationMvpPresenter<DeliveryLocationMvpView> provideDeliveryLocationPresenter(
+            DeliveryLocationPresenter<DeliveryLocationMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
     HomeMvpPresenter<HomeMvpView> provideHomePresenter(
             HomePresenter<HomeMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    HomeFragmentMvpPresenter<HomeFragmentMvpView> provideHomeFragmentPresenter(
+            HomeFragmentPresenter<HomeFragmentMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    ViewProductsMvpPresenter<ViewProductsMvpView> provideViewProductsPresenter(
+            ViewProductsPresenter<ViewProductsMvpView> presenter) {
         return presenter;
     }
 
@@ -140,6 +172,13 @@ public class ActivityModule {
     @PerActivity
     SettingMvpPresenter<SettingsMvpView> provideSettingsPresenter(
             SettingsPresenter<SettingsMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    ProfileMvpPresenter<ProfileMvpView> provideProfilePresenter(
+            ProfilePresenter<ProfileMvpView> presenter) {
         return presenter;
     }
 
@@ -192,5 +231,11 @@ public class ActivityModule {
     @Provides
     LinearLayoutManager provideLinearLayoutManager(AppCompatActivity activity) {
         return new LinearLayoutManager(activity);
+    }
+
+    @Provides
+    LocationSession provideLocationSession(AppCompatActivity activity) {
+
+        return new LocationSession(activity);
     }
 }

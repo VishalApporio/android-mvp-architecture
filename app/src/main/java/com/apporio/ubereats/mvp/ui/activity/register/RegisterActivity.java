@@ -73,7 +73,7 @@ public class RegisterActivity extends BaseActivity implements RegisterMvpView {
         onBackPressed();
     }
 
-    @OnClick(R.id.btn_server_register)
+    @OnClick(R.id.btn_server_submit)
     void onServerRegister(View v) {
 
         mPresenter.onServerRegister(mFirstNameEditText.getText().toString(),

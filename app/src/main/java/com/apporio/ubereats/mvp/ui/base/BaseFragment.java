@@ -26,6 +26,8 @@ import android.view.View;
 import com.apporio.ubereats.mvp.utils.CommonUtils;
 import com.apporio.ubereats.mvp.di.component.ActivityComponent;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.Unbinder;
 
 /**
@@ -151,6 +153,7 @@ public abstract class BaseFragment extends Fragment implements MvpView {
         if (mUnBinder != null) {
             mUnBinder.unbind();
         }
+
         super.onDestroy();
     }
 

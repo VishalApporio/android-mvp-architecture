@@ -9,7 +9,7 @@
         app:showAsAction="never"
         android:title="Settings" />
 
-    <item android:id="@+id/menu_share"
+    <item android:id="@+id/menu_fav"
         android:icon="@drawable/ic_favorite_black_24dp"
         app:showAsAction="always"
         android:title="Favorite" />

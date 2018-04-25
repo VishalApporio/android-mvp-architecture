@@ -9,12 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/place_holder"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="15dp"
-        android:visibility="gone"
+        android:layout_marginTop="5dp"
+        android:visibility="visible"
         android:background="@color/color_white">
 
         <TextView
+            android:id="@+id/tv_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -24,82 +24,14 @@
 
     </LinearLayout>
 
-    <android.support.v7.widget.CardView
+    <com.mindorks.placeholderview.PlaceHolderView
+        android:id="@+id/placeholder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="40dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/image2" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".8"
-                android:gravity="bottom"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Studio Xo Bar"
-                        android:textColor="#173143"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="15-25 MIN"
-                        android:textColor="@color/color_black"
-                        android:textSize="16dp" />
-                </RelativeLayout>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="3dp"
-                    android:text="Good earth city center"
-                    android:textColor="#AAAAAA"
-                    android:textSize="14dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="3dp"
-                    android:text="Good earth city center"
-                    android:textColor="#AAAAAA"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </com.mindorks.placeholderview.PlaceHolderView>
 
 </LinearLayout>

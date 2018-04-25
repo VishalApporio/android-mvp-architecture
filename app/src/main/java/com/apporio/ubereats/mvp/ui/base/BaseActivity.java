@@ -32,21 +32,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apporio.ubereats.R;
+import com.apporio.ubereats.mvp.MvpApp;
+import com.apporio.ubereats.mvp.di.component.ActivityComponent;
 import com.apporio.ubereats.mvp.di.component.DaggerActivityComponent;
+import com.apporio.ubereats.mvp.di.module.ActivityModule;
 import com.apporio.ubereats.mvp.ui.activity.login.LoginActivity;
 import com.apporio.ubereats.mvp.utils.CommonUtils;
-import com.apporio.ubereats.mvp.MvpApp;
-
-import com.apporio.ubereats.mvp.di.component.ActivityComponent;
-import com.apporio.ubereats.mvp.di.module.ActivityModule;
 import com.apporio.ubereats.mvp.utils.NetworkUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.Unbinder;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-/**
- * Created by janisharali on 27/01/17.
- */
 
 public abstract class BaseActivity extends AppCompatActivity
         implements MvpView, BaseFragment.Callback {
@@ -181,6 +179,12 @@ public abstract class BaseActivity extends AppCompatActivity
             mUnBinder.unbind();
         }
         super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
     }
 
     protected abstract void setUp();

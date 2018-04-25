@@ -18,6 +18,7 @@ package com.apporio.ubereats.mvp.ui.main;
 import com.androidnetworking.error.ANError;
 import com.apporio.ubereats.mvp.data.db.model.Question;
 import com.apporio.ubereats.mvp.data.network.model.LogoutResponse;
+import com.apporio.ubereats.mvp.location.LocationSession;
 import com.apporio.ubereats.mvp.ui.base.BasePresenter;
 import com.apporio.ubereats.mvp.utils.rx.SchedulerProvider;
 import com.apporio.ubereats.mvp.data.DataManager;
@@ -91,6 +92,7 @@ public class MainPresenter<V extends MainMvpView> extends BasePresenter<V>
 
     @Override
     public void onViewInitialized() {
+
         getCompositeDisposable().add(getDataManager()
                 .getAllQuestions()
                 .subscribeOn(getSchedulerProvider().io())

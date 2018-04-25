@@ -166,6 +166,7 @@
 
 
         <LinearLayout
+            android:id="@+id/ll_about"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:gravity="center|start">

@@ -17,7 +17,9 @@ package com.apporio.ubereats.mvp.di.component;
 
 import com.apporio.ubereats.mvp.di.PerActivity;
 import com.apporio.ubereats.mvp.ui.about.AboutFragment;
+import com.apporio.ubereats.mvp.ui.activity.deliveryLocation.DeliveryLocationActivity;
 import com.apporio.ubereats.mvp.ui.activity.profile.ProfileViewActivity;
+import com.apporio.ubereats.mvp.ui.activity.viewProducts.ViewProductsActivity;
 import com.apporio.ubereats.mvp.ui.feed.FeedActivity;
 import com.apporio.ubereats.mvp.ui.feed.blogs.BlogFragment;
 import com.apporio.ubereats.mvp.ui.feed.opensource.OpenSourceFragment;
@@ -34,6 +36,7 @@ import com.apporio.ubereats.mvp.ui.activity.register.RegisterActivity;
 import com.apporio.ubereats.mvp.ui.activity.splash.SplashActivity;
 
 import dagger.Component;
+import dagger.Provides;
 
 /**
  * Created by janisharali on 27/01/17.
@@ -57,9 +60,13 @@ public interface ActivityComponent {
 
     void inject(ProfileViewActivity activity);
 
+    void inject(DeliveryLocationActivity activity);
+
     void inject(AboutFragment fragment);
 
     void inject(HomeFragment fragment);
+
+    void inject(ViewProductsActivity activity);
 
     void inject(SearchResturanentFragment SearchResturanentFragment);
 

@@ -32,6 +32,17 @@ public final class ApiEndPoint {
 
     public static final String ENDPOINT_SERVER_LOGIN = "http://ubereatsmocks.apporioinfolabs.mockable.io/uber_eats_login";
 
+    public static final String ENDPOINT_SERVER_VIEW_PROFILE = "http://ubereatsmocks.apporioinfolabs.mockable.io/uber_eats_register";
+
+    public static final String ENDPOINT_SERVER_VIEW_RESTURANENTS = "http://ubereatsmocks.apporioinfolabs.mockable.io/home_screen";
+
+    public static final String ENDPOINT_SERVER_AUTO_COMPLETE_API = "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=";
+
+    public static final String ENDPOINT_SERVER_GET_LOCATION_API = "https://maps.googleapis.com/maps/api/place/details/json?placeid=";
+
+    public static final String ENDPOINT_SERVER_GET_VIEW_PRODUCTS_API = "http://ubereatsmocks.apporioinfolabs.mockable.io/specific_restaurent_products";
+
+
     public static final String ENDPOINT_LOGOUT = BuildConfig.BASE_URL
             + "/588d161c100000a9072d2946";
 

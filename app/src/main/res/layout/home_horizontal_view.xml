@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_category"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -10,7 +10,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="170dp"
+        android:layout_width="250dp"
         android:layout_height="220dp">
 
         <LinearLayout
@@ -24,11 +24,27 @@
                 android:layout_height="0dp"
                 android:layout_weight="1.2">
 
-                <ImageView
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_rest_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="fitXY"
                     android:src="@drawable/img_home_page" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:alpha=".3"
+                    android:background="@color/color_black" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_rest_fav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
+
             </RelativeLayout>
 
             <LinearLayout
@@ -38,36 +54,62 @@
                 android:gravity="start"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:paddingTop="10dp"
-                    android:text="Studio Xo Bar"
-                    android:textColor="#173143"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_rest_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:layout_alignParentLeft="true"
+                        android:text=""
+                        android:textColor="#173143"
+                        android:textSize="12dp"
+                        android:layout_toLeftOf="@+id/tv_rest_timing"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/tv_rest_timing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="10dp"
+                        android:text=""
+                        android:textColor="#173143"
+                        android:textSize="12dp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_rest_type"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="3dp"
-                    android:text="Good earth city center"
+                    android:text=""
                     android:textColor="#AAAAAA"
-                    android:textSize="14dp" />
+                    android:textSize="12dp" />
 
                 <TextView
+                    android:id="@+id/tv_rest_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="3dp"
-                    android:text="Good earth city center"
-                    android:textColor="#AAAAAA"
+                    android:text=""
+                    android:textColor="#000000"
                     android:textSize="13dp" />
 
             </LinearLayout>

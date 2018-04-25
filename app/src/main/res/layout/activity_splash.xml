@@ -30,6 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="IRIS TECH PARK"
+                android:visibility="gone"
                 android:textColor="@color/color_white"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"/>
@@ -46,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="UBER EATS"
+                android:text="@string/app_name"
                 android:textColor="@color/color_white"
                 android:textSize="40dp"
                 android:textStyle="bold" />

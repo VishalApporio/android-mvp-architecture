@@ -24,6 +24,7 @@ import android.util.Log;
 import com.androidnetworking.common.ANConstants;
 import com.androidnetworking.error.ANError;
 import com.apporio.ubereats.R;
+import com.apporio.ubereats.mvp.location.LocationSession;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
@@ -96,9 +97,9 @@ public class BasePresenter<V extends MvpView> implements MvpPresenter<V> {
         return mCompositeDisposable;
     }
 
+
     @Override
     public void handleApiError(ANError error) {
-
         if (error == null || error.getErrorBody() == null) {
             getMvpView().onError(R.string.api_default_error);
             return;

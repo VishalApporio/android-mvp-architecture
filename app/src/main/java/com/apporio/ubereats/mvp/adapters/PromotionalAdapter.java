@@ -8,22 +8,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.apporio.ubereats.R;
-
-import java.util.ArrayList;
+import com.apporio.ubereats.mvp.data.network.model.ViewResturanentsModel;
+import com.bumptech.glide.Glide;
 
 /**
  * Created by lenovo on 4/11/2018.
  */
 
-public class PromotionalAdapter extends PagerAdapter{
+public class PromotionalAdapter extends PagerAdapter {
 
-    private ArrayList<Integer> images;
+    //    private ArrayList<Integer> images;
+    ViewResturanentsModel.ResponseBean.PromotionalDataBean mpromotional_data;
     private LayoutInflater inflater;
     private Context context;
 
-    public PromotionalAdapter(Context context, ArrayList<Integer> images) {
+//    public PromotionalAdapter(Context context, ArrayList<Integer> images) {
+//        this.context = context;
+//        this.images = images;
+//        inflater = LayoutInflater.from(context);
+//    }
+
+    public PromotionalAdapter(Context mContext, ViewResturanentsModel.ResponseBean.PromotionalDataBean mpromotional_data) {
         this.context = context;
-        this.images=images;
+        this.mpromotional_data = mpromotional_data;
         inflater = LayoutInflater.from(context);
     }
 
@@ -34,7 +41,8 @@ public class PromotionalAdapter extends PagerAdapter{
 
     @Override
     public int getCount() {
-        return images.size();
+
+        return mpromotional_data.getPromotional_image().length();
     }
 
     @Override
@@ -42,7 +50,14 @@ public class PromotionalAdapter extends PagerAdapter{
         View myImageLayout = inflater.inflate(R.layout.slide, view, false);
         ImageView myImage = (ImageView) myImageLayout
                 .findViewById(R.id.image);
-        myImage.setImageResource(images.get(position));
+        // myImage.setImageDrawable(mpromotional_data.get(position).getPromotional_image());
+
+        Glide.with(context)
+                .load(mpromotional_data.getPromotional_image())
+                .asBitmap()
+                .centerCrop()
+                .into(myImage);
+
         view.addView(myImageLayout, 0);
         return myImageLayout;
     }

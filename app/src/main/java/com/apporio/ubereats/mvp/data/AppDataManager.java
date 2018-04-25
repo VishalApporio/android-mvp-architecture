@@ -24,13 +24,17 @@ import com.apporio.ubereats.mvp.data.db.model.Question;
 import com.apporio.ubereats.mvp.data.db.model.User;
 import com.apporio.ubereats.mvp.data.network.ApiHeader;
 import com.apporio.ubereats.mvp.data.network.ApiHelper;
+import com.apporio.ubereats.mvp.data.network.model.AllProductsResponse;
 import com.apporio.ubereats.mvp.data.network.model.BlogResponse;
+import com.apporio.ubereats.mvp.data.network.model.GetLocationsModelClass;
 import com.apporio.ubereats.mvp.data.network.model.LoginRequest;
 import com.apporio.ubereats.mvp.data.network.model.LoginResponse;
 import com.apporio.ubereats.mvp.data.network.model.LogoutResponse;
 import com.apporio.ubereats.mvp.data.network.model.OpenSourceResponse;
+import com.apporio.ubereats.mvp.data.network.model.ViewResturanentsModel;
 import com.apporio.ubereats.mvp.data.prefs.PreferencesHelper;
 import com.apporio.ubereats.mvp.di.ApplicationContext;
+import com.apporio.ubereats.mvp.di.others.PlacePredictions;
 import com.apporio.ubereats.mvp.utils.AppConstants;
 import com.apporio.ubereats.mvp.utils.CommonUtils;
 import com.google.gson.Gson;
@@ -121,6 +125,31 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<LoginResponse> doServerRegisterApiCall(LoginRequest.ServerRegisterRequest request) {
         return mApiHelper.doServerRegisterApiCall(request);
+    }
+
+    @Override
+    public Single<LoginResponse> doViewProfileApiCall() {
+        return mApiHelper.doViewProfileApiCall();
+    }
+
+    @Override
+    public Single<ViewResturanentsModel> doViewResturanentsApiCall() {
+        return mApiHelper.doViewResturanentsApiCall();
+    }
+
+    @Override
+    public Single<AllProductsResponse> doViewAllProductsApiCall() {
+        return mApiHelper.doViewAllProductsApiCall();
+    }
+
+    @Override
+    public Single<PlacePredictions> doAutoCompleteApiCall(String value, Double latitude, Double longitude, String google_key) {
+        return mApiHelper.doAutoCompleteApiCall(value, latitude, longitude, google_key);
+    }
+
+    @Override
+    public Single<GetLocationsModelClass> doGetLocationApiCall(String place_id, String google_key) {
+        return mApiHelper.doGetLocationApiCall(place_id, google_key);
     }
 
     @Override

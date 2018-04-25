@@ -71,7 +71,7 @@ public class LoginResponse {
          * session_token : 223jdiuijrekiu78i_pp09_AASDzzr4+9090
          */
 
-        private long user_id;
+        private Long user_id;
         private String user_first_name;
         private String user_last_name;
         private String user_email;
@@ -83,11 +83,11 @@ public class LoginResponse {
         private int login_type;
         private String session_token;
 
-        public long getUser_id() {
+        public Long getUser_id() {
             return user_id;
         }
 
-        public void setUser_id(int user_id) {
+        public void setUser_id(Long user_id) {
             this.user_id = user_id;
         }
 

@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 
 import com.apporio.ubereats.R;
 import com.apporio.ubereats.mvp.di.component.ActivityComponent;
-import com.apporio.ubereats.mvp.ui.activity.NewProfileActivity;
+import com.apporio.ubereats.mvp.ui.about.AboutFragment;
 import com.apporio.ubereats.mvp.ui.activity.login.LoginActivity;
 import com.apporio.ubereats.mvp.ui.activity.profile.ProfileViewActivity;
 import com.apporio.ubereats.mvp.ui.base.BaseFragment;
@@ -20,6 +20,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 /**
@@ -65,7 +66,7 @@ public class SettingsMenuFragment extends BaseFragment implements SettingsMvpVie
         ll_profile_settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), NewProfileActivity.class));
+                startActivity(new Intent(getActivity(), ProfileViewActivity.class));
             }
         });
 
@@ -76,6 +77,16 @@ public class SettingsMenuFragment extends BaseFragment implements SettingsMvpVie
             }
         });
         return view;
+    }
+
+    @OnClick(R.id.ll_about)
+    void openAboutFragment() {
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(R.anim.slide_left, R.anim.slide_right)
+                .add(R.id.cl_root_view, AboutFragment.newInstance(), AboutFragment.TAG)
+                .commit();
     }
 
     @Override

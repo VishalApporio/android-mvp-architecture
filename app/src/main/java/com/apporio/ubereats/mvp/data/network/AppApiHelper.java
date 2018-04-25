@@ -15,11 +15,15 @@
 
 package com.apporio.ubereats.mvp.data.network;
 
+import com.apporio.ubereats.mvp.data.network.model.AllProductsResponse;
 import com.apporio.ubereats.mvp.data.network.model.BlogResponse;
+import com.apporio.ubereats.mvp.data.network.model.GetLocationsModelClass;
 import com.apporio.ubereats.mvp.data.network.model.LogoutResponse;
 import com.apporio.ubereats.mvp.data.network.model.OpenSourceResponse;
 import com.apporio.ubereats.mvp.data.network.model.LoginRequest;
 import com.apporio.ubereats.mvp.data.network.model.LoginResponse;
+import com.apporio.ubereats.mvp.data.network.model.ViewResturanentsModel;
+import com.apporio.ubereats.mvp.di.others.PlacePredictions;
 import com.rx2androidnetworking.Rx2AndroidNetworking;
 
 import javax.inject.Inject;
@@ -82,6 +86,43 @@ public class AppApiHelper implements ApiHelper {
                 .build()
                 .getObjectSingle(LoginResponse.class);
     }
+
+    @Override
+    public Single<PlacePredictions> doAutoCompleteApiCall(String value, Double latitude, Double longitude,String google_key) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_SERVER_AUTO_COMPLETE_API+value+"&location="+latitude+","+longitude+"&radius=1000&language=en&key="+google_key)
+                .build()
+                .getObjectSingle(PlacePredictions.class);
+    }
+
+    @Override
+    public Single<GetLocationsModelClass> doGetLocationApiCall(String place_id, String google_key) {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_SERVER_GET_LOCATION_API+place_id+"&key="+google_key+"&language_code=en")
+                .build()
+                .getObjectSingle(GetLocationsModelClass.class);
+    }
+    //  https://maps.googleapis.com/maps/api/place/autocomplete/json?input=h&location=0.0,0.0&radius=1000&language=en&key=AIzaSyA0vZo1Wp9Jd_CIlwKC0bwZ8rbUDcMpe8A
+
+    @Override
+    public Single<LoginResponse> doViewProfileApiCall() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_SERVER_VIEW_PROFILE)
+                .build()
+                .getObjectSingle(LoginResponse.class);
+    }
+
+    @Override
+    public Single<ViewResturanentsModel> doViewResturanentsApiCall() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_SERVER_VIEW_RESTURANENTS)
+                .build()
+                .getObjectSingle(ViewResturanentsModel.class);
+    }
+
+    @Override
+    public Single<AllProductsResponse> doViewAllProductsApiCall() {
+        return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_SERVER_GET_VIEW_PRODUCTS_API)
+                .build()
+                .getObjectSingle(AllProductsResponse.class);
+    }
+
 
     @Override
     public Single<LogoutResponse> doLogoutApiCall() {

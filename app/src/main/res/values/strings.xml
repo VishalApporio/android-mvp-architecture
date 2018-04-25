@@ -52,6 +52,11 @@
     <string name="empty_phone_no">Please enter phone no.</string>
     <string name="invalid_email">Please provide a valid email.</string>
     <string name="empty_password">Please enter password.</string>
+    <string name="empty_user_image">Please upload Profile Pic</string>
+
+
+    <!--Profile Validation-->
+
 
     <!--about fragment-->
     <string name="project_info">This sample app implements MVP architecture using Dagger2, GreenDao, RxJava, FastAndroidNetworking and PlaceholderView</string>
