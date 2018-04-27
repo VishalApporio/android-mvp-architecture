@@ -48,6 +48,41 @@
                     android:layout_margin="10dp"
                     app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
 
+
+                <RelativeLayout
+                    android:id="@+id/rl_available"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0.4"
+                        android:background="@color/color_black"
+                        android:orientation="vertical"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_availability_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentBottom="true"
+                        android:alpha="0.8"
+                        android:background="@color/color_black"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_available_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sold out"
+                            android:textColor="@color/color_white" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
             </RelativeLayout>
 
             <LinearLayout

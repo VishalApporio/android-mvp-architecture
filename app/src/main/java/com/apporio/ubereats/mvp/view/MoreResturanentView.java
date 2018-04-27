@@ -3,6 +3,7 @@ package com.apporio.ubereats.mvp.view;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.AppCompatImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.apporio.ubereats.R;
@@ -66,6 +67,10 @@ public class MoreResturanentView {
         @View(R.id.tv_rest_rating)
         TextView tv_rest_rating;
         boolean favorite;
+        @View(R.id.rl_available)
+        RelativeLayout rl_available;
+        @View(R.id.tv_available_text)
+        TextView tv_available_text;
 
         public HolderMoreRestauranent(Context context, ViewResturanentsModel.ResponseBean.ScrollerAllDataBean.ScrollerDataBean scrollerDataBean) {
 
@@ -85,6 +90,14 @@ public class MoreResturanentView {
             } else {
                 iv_rest_fav.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_favorite_border_black_24dp));
             }
+
+            if(mScrollDataBean.isAvailability() == false){
+                rl_available.setVisibility(android.view.View.VISIBLE);
+                tv_available_text.setText(mScrollDataBean.getAvailability_text().toString());
+            }else {
+                rl_available.setVisibility(android.view.View.GONE);
+            }
+
 
             if (!mScrollDataBean.getRestauranent_image().toString().equals("")) {
                 Glide.with(mContext).load("" + mScrollDataBean.getRestauranent_image().toString()).into(iv_rest_image);
@@ -109,9 +122,9 @@ public class MoreResturanentView {
 
         @Click(R.id.ll_category)
         private void onClick() {
-
-            mContext.startActivity(new Intent(mContext, ViewProductsActivity.class));
-        }
+            if(mScrollDataBean.isAvailability() == true){
+                mContext.startActivity(new Intent(mContext, ViewProductsActivity.class));
+            }        }
 
     }
 }

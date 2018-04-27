@@ -3,12 +3,16 @@ package com.apporio.ubereats.mvp.ui.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.apporio.ubereats.R;
-import com.apporio.ubereats.mvp.data.network.model.AllProductsResponse;
+import com.apporio.ubereats.mvp.data.network.model.AllProductsRespon;
+import com.apporio.ubereats.mvp.data.network.model.allProductresponse.AllProductResponse;
+import com.apporio.ubereats.mvp.data.network.model.allProductresponse.Category;
+import com.apporio.ubereats.mvp.data.network.model.allProductresponse.Response;
 import com.apporio.ubereats.mvp.view.CategoryItems;
 import com.mindorks.placeholderview.PlaceHolderView;
 
@@ -18,16 +22,16 @@ import com.mindorks.placeholderview.PlaceHolderView;
 public class ShowProductsFragment extends Fragment {
 
     int color;
-    public static AllProductsResponse.ResponseBean mAllProductsResponse;
+    public static Response mAllProductsResponse;
     public static int mCategoryPosition;
-    AllProductsResponse.ResponseBean.CategoriesBean mData;
+    Category mData;
 
 
     public ShowProductsFragment() {
         // Required empty public constructor
     }
 
-    public static ShowProductsFragment newInstance(AllProductsResponse.ResponseBean allProductsResponse, int category_position) {
+    public static ShowProductsFragment newInstance(Response allProductsResponse, int category_position) {
         ShowProductsFragment f = new ShowProductsFragment();
         Bundle b = new Bundle();
         b.putInt("msg", category_position);
@@ -45,11 +49,13 @@ public class ShowProductsFragment extends Fragment {
 
         mData = mAllProductsResponse.getCategories().get(getArguments().getInt("msg"));
 
+        Log.e("Data",""+ mData);
+
         PlaceHolderView place_holder = (PlaceHolderView) view.findViewById(R.id.place_holder);
 
 
-        for (int j = 0; j < mData.getCategory_products().size(); j++) {
-            place_holder.addView(new CategoryItems(getContext(), mData.getCategory_products().get(j),mCategoryPosition));
+        for (int j = 0; j < mData.getCategoryProducts().size(); j++) {
+            place_holder.addView(new CategoryItems(getContext(), mData.getCategoryProducts().get(j),mCategoryPosition));
 
         }
 

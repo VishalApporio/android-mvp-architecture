@@ -19,6 +19,7 @@ import com.apporio.ubereats.mvp.di.PerActivity;
 import com.apporio.ubereats.mvp.ui.about.AboutFragment;
 import com.apporio.ubereats.mvp.ui.activity.deliveryLocation.DeliveryLocationActivity;
 import com.apporio.ubereats.mvp.ui.activity.profile.ProfileViewActivity;
+import com.apporio.ubereats.mvp.ui.activity.viewParticularDish.ViewDishActivity;
 import com.apporio.ubereats.mvp.ui.activity.viewProducts.ViewProductsActivity;
 import com.apporio.ubereats.mvp.ui.feed.FeedActivity;
 import com.apporio.ubereats.mvp.ui.feed.blogs.BlogFragment;
@@ -67,6 +68,8 @@ public interface ActivityComponent {
     void inject(HomeFragment fragment);
 
     void inject(ViewProductsActivity activity);
+
+    void inject(ViewDishActivity activity);
 
     void inject(SearchResturanentFragment SearchResturanentFragment);
 

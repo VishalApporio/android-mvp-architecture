@@ -2,6 +2,7 @@ package com.apporio.ubereats.mvp.view;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 import com.apporio.ubereats.R;
 import com.apporio.ubereats.mvp.adapters.PromotionalAdapter;
@@ -33,10 +34,10 @@ public class PromotionsViewClass {
     private static int currentPage = 0;
     private static final Integer[] XMEN = {R.drawable.image1, R.drawable.image2, R.drawable.image3};
     private ArrayList<Integer> XMENArray = new ArrayList<Integer>();
-    ViewResturanentsModel.ResponseBean.PromotionalDataBean mpromotional_data;
+    ViewResturanentsModel mpromotional_data;
 
 
-    public PromotionsViewClass(Context context, ViewResturanentsModel.ResponseBean.PromotionalDataBean promotionalDataBean) {
+    public PromotionsViewClass(Context context, ViewResturanentsModel promotionalDataBean) {
         mContext = context;
         mpromotional_data = promotionalDataBean;
     }
@@ -44,7 +45,9 @@ public class PromotionsViewClass {
     @Resolve
     public void onReolved() {
 
-        init();
+        Log.e("PromotionalData",mpromotional_data.getResponse().getPromotional_data().get(0).getPromotional_medium_txt().toString());
+        mPager.setAdapter(new PromotionalAdapter(mContext, mpromotional_data));
+        indicator.setViewPager(mPager);
     }
 
     private void init() {

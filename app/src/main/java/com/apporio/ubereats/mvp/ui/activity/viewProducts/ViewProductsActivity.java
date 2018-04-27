@@ -15,14 +15,14 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.apporio.ubereats.R;
-import com.apporio.ubereats.mvp.data.network.model.AllProductsResponse;
+import com.apporio.ubereats.mvp.data.network.model.AllProductsRespon;
+import com.apporio.ubereats.mvp.data.network.model.allProductresponse.AllProductResponse;
 import com.apporio.ubereats.mvp.ui.base.BaseActivity;
 import com.apporio.ubereats.mvp.ui.fragments.ShowProductsFragment;
 
@@ -137,18 +137,18 @@ public class ViewProductsActivity extends BaseActivity implements ViewProductsMv
     // getAllProductsResponse
 
     @Override
-    public void viewAllRestauranentProducts(AllProductsResponse allProductsResponse) {
+    public void viewAllRestauranentProducts(AllProductResponse allProductsResponse) {
 
-        Log.e("AllProductsResponse", "" + allProductsResponse.getResponse().getCategories());
+        Log.e("AllProductsRespon", "" + allProductsResponse.getResponse().getCategories());
 
-        if(allProductsResponse.getResponse().isFavourite()){
+        if(allProductsResponse.getResponse().getFavourite()){
             action_done.setIcon(getResources().getDrawable(R.drawable.ic_favorite_black_24dp));
         }else {
             action_done.setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_black_24dp));
         }
 
         if (getSupportActionBar() != null)
-            getSupportActionBar().setTitle(allProductsResponse.getResponse().getRestauranent_name().toString());
+            getSupportActionBar().setTitle(allProductsResponse.getResponse().getRestauranentName().toString());
 
 //        if(!allProductsResponse.getResponse().getRestauranent_image().equals("")){
 //            Glide.with(this).load("" + allProductsResponse.getResponse().getRestauranent_image().toString()).into(iv_rest_image);
@@ -165,9 +165,9 @@ public class ViewProductsActivity extends BaseActivity implements ViewProductsMv
     private static class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();
-        AllProductsResponse allProductsResponse;
+        AllProductResponse allProductsResponse;
 
-        public ViewPagerAdapter(FragmentManager manager, AllProductsResponse allProductsResponse) {
+        public ViewPagerAdapter(FragmentManager manager, AllProductResponse allProductsResponse) {
             super(manager);
             this.allProductsResponse = allProductsResponse;
         }
@@ -189,9 +189,12 @@ public class ViewProductsActivity extends BaseActivity implements ViewProductsMv
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return allProductsResponse.getResponse().getCategories().get(position).getCategory_name();
+            return allProductsResponse.getResponse().getCategories().get(position).getCategoryName();
         }
     }
+
+
+
 }
 
 

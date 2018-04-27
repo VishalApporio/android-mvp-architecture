@@ -51,6 +51,8 @@
     <color name="colorAccent">#1FBAD6</color>
 
 
+    <color name="text_main_color">#09091A</color>
+    <color name="line_color">#CDCDD3</color>
     <color name="splash_background">#7DC240</color>
     <color name="button_color">#43A422</color>
     <color name="REGISTER_button_color">#09091A</color>

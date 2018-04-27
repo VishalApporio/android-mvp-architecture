@@ -1,12 +1,13 @@
 package com.apporio.ubereats.mvp.data.network.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by lenovo on 4/24/2018.
  */
 
-public class AllProductsResponse {
+public class AllProductsRespon {
 
 
     /**
@@ -269,7 +270,7 @@ public class AllProductsResponse {
                 this.category_products = category_products;
             }
 
-            public static class CategoryProductsBean {
+            public static class CategoryProductsBean implements Serializable {
                 /**
                  * product_id : 45
                  * product_name : Chole Chawal.

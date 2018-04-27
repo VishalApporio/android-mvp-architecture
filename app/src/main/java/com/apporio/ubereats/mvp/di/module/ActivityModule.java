@@ -45,6 +45,9 @@ import com.apporio.ubereats.mvp.ui.activity.register.RegisterPresenter;
 import com.apporio.ubereats.mvp.ui.activity.splash.SplashMvpPresenter;
 import com.apporio.ubereats.mvp.ui.activity.splash.SplashMvpView;
 import com.apporio.ubereats.mvp.ui.activity.splash.SplashPresenter;
+import com.apporio.ubereats.mvp.ui.activity.viewParticularDish.ViewDishMvpPresenter;
+import com.apporio.ubereats.mvp.ui.activity.viewParticularDish.ViewDishMvpView;
+import com.apporio.ubereats.mvp.ui.activity.viewParticularDish.ViewDishPresenter;
 import com.apporio.ubereats.mvp.ui.activity.viewProducts.ViewProductsMvpPresenter;
 import com.apporio.ubereats.mvp.ui.activity.viewProducts.ViewProductsMvpView;
 import com.apporio.ubereats.mvp.ui.activity.viewProducts.ViewProductsPresenter;
@@ -165,6 +168,13 @@ public class ActivityModule {
     @Provides
     ViewProductsMvpPresenter<ViewProductsMvpView> provideViewProductsPresenter(
             ViewProductsPresenter<ViewProductsMvpView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    ViewDishMvpPresenter<ViewDishMvpView> provideViewDishPresenter(
+            ViewDishPresenter<ViewDishMvpView> presenter) {
         return presenter;
     }
 

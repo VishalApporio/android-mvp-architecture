@@ -24,7 +24,6 @@ import com.apporio.ubereats.mvp.data.db.model.Question;
 import com.apporio.ubereats.mvp.data.db.model.User;
 import com.apporio.ubereats.mvp.data.network.ApiHeader;
 import com.apporio.ubereats.mvp.data.network.ApiHelper;
-import com.apporio.ubereats.mvp.data.network.model.AllProductsResponse;
 import com.apporio.ubereats.mvp.data.network.model.BlogResponse;
 import com.apporio.ubereats.mvp.data.network.model.GetLocationsModelClass;
 import com.apporio.ubereats.mvp.data.network.model.LoginRequest;
@@ -32,6 +31,7 @@ import com.apporio.ubereats.mvp.data.network.model.LoginResponse;
 import com.apporio.ubereats.mvp.data.network.model.LogoutResponse;
 import com.apporio.ubereats.mvp.data.network.model.OpenSourceResponse;
 import com.apporio.ubereats.mvp.data.network.model.ViewResturanentsModel;
+import com.apporio.ubereats.mvp.data.network.model.allProductresponse.AllProductResponse;
 import com.apporio.ubereats.mvp.data.prefs.PreferencesHelper;
 import com.apporio.ubereats.mvp.di.ApplicationContext;
 import com.apporio.ubereats.mvp.di.others.PlacePredictions;
@@ -138,7 +138,7 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
-    public Single<AllProductsResponse> doViewAllProductsApiCall() {
+    public Single<AllProductResponse> doViewAllProductsApiCall() {
         return mApiHelper.doViewAllProductsApiCall();
     }
 

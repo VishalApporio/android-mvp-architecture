@@ -167,17 +167,17 @@ public class HomeFragment extends BaseFragment implements HomeFragmentMvpView {
     @Override
     public void updateAllRestauranentsView(ViewResturanentsModel viewResturanentsModel) {
 
-     //   place_holder.addView(new PromotionsViewClass(getContext(),viewResturanentsModel.getResponse().getPromotional_data()));
+        place_holder.addView(new PromotionsViewClass(getContext(), viewResturanentsModel));
 
         Log.e("Size of array", "" + viewResturanentsModel.getResponse().getScroller_all_data().size());
 
         for (int i = 0; i < viewResturanentsModel.getResponse().getScroller_all_data().size(); i++) {
 
             if (viewResturanentsModel.getResponse().getScroller_all_data().get(i).getView_scroller_mode() == 0) {
-                place_holder.addView(new HomeHorizontalCategory(getContext(),viewResturanentsModel.getResponse().getScroller_all_data().get(i)));
+                place_holder.addView(new HomeHorizontalCategory(getContext(), viewResturanentsModel.getResponse().getScroller_all_data().get(i)));
 
             } else if (viewResturanentsModel.getResponse().getScroller_all_data().get(i).getView_scroller_mode() == 1) {
-                place_holder.addView(new MoreResturanentView(getContext(),viewResturanentsModel.getResponse().getScroller_all_data().get(i)));
+                place_holder.addView(new MoreResturanentView(getContext(), viewResturanentsModel.getResponse().getScroller_all_data().get(i)));
             }
         }
     }

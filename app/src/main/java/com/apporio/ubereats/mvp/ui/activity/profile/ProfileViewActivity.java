@@ -102,6 +102,7 @@ public class ProfileViewActivity extends BaseActivity implements AppBarLayout.On
         et_email.setEnabled(false);
         et_phone_no.setEnabled(false);
         et_password.setEnabled(false);
+        et_password.setText("1234567");
 
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

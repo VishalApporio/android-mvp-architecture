@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 public class PromotionalAdapter extends PagerAdapter {
 
     //    private ArrayList<Integer> images;
-    ViewResturanentsModel.ResponseBean.PromotionalDataBean mpromotional_data;
+    ViewResturanentsModel mpromotional_data;
     private LayoutInflater inflater;
     private Context context;
 
@@ -28,8 +28,8 @@ public class PromotionalAdapter extends PagerAdapter {
 //        inflater = LayoutInflater.from(context);
 //    }
 
-    public PromotionalAdapter(Context mContext, ViewResturanentsModel.ResponseBean.PromotionalDataBean mpromotional_data) {
-        this.context = context;
+    public PromotionalAdapter(Context mContext, ViewResturanentsModel mpromotional_data) {
+        this.context = mContext;
         this.mpromotional_data = mpromotional_data;
         inflater = LayoutInflater.from(context);
     }
@@ -42,7 +42,7 @@ public class PromotionalAdapter extends PagerAdapter {
     @Override
     public int getCount() {
 
-        return mpromotional_data.getPromotional_image().length();
+        return mpromotional_data.getResponse().getPromotional_data().size();
     }
 
     @Override
@@ -53,7 +53,7 @@ public class PromotionalAdapter extends PagerAdapter {
         // myImage.setImageDrawable(mpromotional_data.get(position).getPromotional_image());
 
         Glide.with(context)
-                .load(mpromotional_data.getPromotional_image())
+                .load(mpromotional_data.getResponse().getPromotional_data().get(position).getPromotional_image())
                 .asBitmap()
                 .centerCrop()
                 .into(myImage);

@@ -2,7 +2,8 @@ package com.apporio.ubereats.mvp.ui.activity.viewProducts;
 
 import com.androidnetworking.error.ANError;
 import com.apporio.ubereats.mvp.data.DataManager;
-import com.apporio.ubereats.mvp.data.network.model.AllProductsResponse;
+
+import com.apporio.ubereats.mvp.data.network.model.allProductresponse.AllProductResponse;
 import com.apporio.ubereats.mvp.ui.base.BasePresenter;
 import com.apporio.ubereats.mvp.utils.rx.SchedulerProvider;
 
@@ -35,9 +36,9 @@ public class ViewProductsPresenter<V extends ViewProductsMvpView> extends BasePr
                 .doViewAllProductsApiCall()
                 .subscribeOn(getSchedulerProvider().io())
                 .observeOn(getSchedulerProvider().ui())
-                .subscribe(new Consumer<AllProductsResponse>() {
+                .subscribe(new Consumer<AllProductResponse>() {
                     @Override
-                    public void accept(AllProductsResponse response) throws Exception {
+                    public void accept(AllProductResponse response) throws Exception {
 
                         if (!isViewAttached()) {
                             return;

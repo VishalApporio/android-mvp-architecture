@@ -1,6 +1,7 @@
 package com.apporio.ubereats.mvp.ui.activity.viewProducts;
 
-import com.apporio.ubereats.mvp.data.network.model.AllProductsResponse;
+import com.apporio.ubereats.mvp.data.network.model.AllProductsRespon;
+import com.apporio.ubereats.mvp.data.network.model.allProductresponse.AllProductResponse;
 import com.apporio.ubereats.mvp.ui.base.MvpView;
 
 /**
@@ -9,6 +10,6 @@ import com.apporio.ubereats.mvp.ui.base.MvpView;
 
 public interface ViewProductsMvpView extends MvpView {
 
-    void viewAllRestauranentProducts(AllProductsResponse allProductsResponse);
+    void viewAllRestauranentProducts(AllProductResponse allProductsResponse);
 
 }
