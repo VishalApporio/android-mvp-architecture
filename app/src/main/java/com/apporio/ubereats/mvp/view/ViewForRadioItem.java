@@ -12,6 +12,8 @@ import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 
+import java.util.ArrayList;
+
 /**
  * Created by lenovo on 4/25/2018.
  */
@@ -33,13 +35,15 @@ public class ViewForRadioItem {
     RadioButton radioButton;
     boolean checked = true;
     PlaceHolderView placeHolderView;
+    ArrayList<Integer> refreshlist;
 
 
-    public ViewForRadioItem(Context context, SelectorDatum selectorDatum, int position, PlaceHolderView placeHolderView) {
+    public ViewForRadioItem(Context context, SelectorDatum selectorDatum, int position, PlaceHolderView placeHolderView,ArrayList arrayList) {
         this.context = context;
         this.selectorDatum = selectorDatum;
         this.position = position;
         this.placeHolderView = placeHolderView;
+        this.refreshlist=arrayList;
     }
 
     @Resolve
@@ -49,24 +53,50 @@ public class ViewForRadioItem {
             tv_item_price.setText("$" + " " + selectorDatum.getProductPrice().toString());
         }
         tv_item_text.setText(selectorDatum.getProductName().toString());
+
+
+        if(refreshlist.get(position)==1)
+        {
+            radioButton.setChecked(true);
+        }
+        else {
+            radioButton.setChecked(false);
+        }
     }
 
     @Click(R.id.radio)
     public void onClick() {
 
-        String radio_id = selectorDatum.getProductId().toString();
-        placeHolderView.refresh();
-        placeHolderView.refreshView(position);
-        placeHolderView.getAdapter().notifyDataSetChanged();
-        if (checked == true) {
-            radioButton.setChecked(true);
-            checked = false;
+        for (int i = 0; i <refreshlist.size() ; i++) {
 
-        } else {
-            radioButton.setChecked(false);
-            checked = true;
+            if(i==position)
+            {
+                if(refreshlist.get(position)==1) {
+                    refreshlist.set(i, 0);
+                }
+                else {
+                    refreshlist.set(i, 1);
+                }
+            }
+            else {
+                refreshlist.set(i,0);
+            }
 
         }
+        placeHolderView.refresh();
+
+//        String radio_id = selectorDatum.getProductId().toString();
+//        placeHolderView.refresh();
+//        placeHolderView.refreshView(position);
+//        if (checked == true) {
+//            radioButton.setChecked(true);
+//            checked = false;
+//
+//        } else {
+//            radioButton.setChecked(false);
+//            checked = true;
+//
+//        }
     }
 
 }

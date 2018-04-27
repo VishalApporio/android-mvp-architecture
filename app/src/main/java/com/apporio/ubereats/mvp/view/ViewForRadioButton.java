@@ -11,6 +11,8 @@ import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 
+import java.util.ArrayList;
+
 /**
  * Created by lenovo on 4/25/2018.
  */
@@ -29,6 +31,8 @@ public class ViewForRadioButton {
     CategoryProduct categoryProduct;
     Context context;
     int position;
+    ArrayList<Integer> arrayList = new ArrayList<>();
+    ViewForRadioItem addonView;
 
     public ViewForRadioButton(Context context, CategoryProduct categoryProduct, int position) {
         this.context = context;
@@ -46,8 +50,11 @@ public class ViewForRadioButton {
         } else {
             ll_required_layout.setVisibility(android.view.View.GONE);
         }
+        arrayList.clear();
         for (int i = 0; i < categoryProduct.getSelectors().get(position).getSelectorData().size(); i++) {
-            place_holder.addView(new ViewForRadioItem(context, categoryProduct.getSelectors().get(position).getSelectorData().get(i), i, place_holder));
+            arrayList.add(0);
+            addonView = new ViewForRadioItem(context, categoryProduct.getSelectors().get(position).getSelectorData().get(i), i, place_holder,arrayList);
+            place_holder.addView(addonView);
         }
     }
 }

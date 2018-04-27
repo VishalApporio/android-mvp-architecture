@@ -21,7 +21,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.apporio.ubereats.R;
-import com.apporio.ubereats.mvp.data.network.model.AllProductsRespon;
 import com.apporio.ubereats.mvp.data.network.model.allProductresponse.AllProductResponse;
 import com.apporio.ubereats.mvp.ui.base.BaseActivity;
 import com.apporio.ubereats.mvp.ui.fragments.ShowProductsFragment;
@@ -141,9 +140,9 @@ public class ViewProductsActivity extends BaseActivity implements ViewProductsMv
 
         Log.e("AllProductsRespon", "" + allProductsResponse.getResponse().getCategories());
 
-        if(allProductsResponse.getResponse().getFavourite()){
+        if (allProductsResponse.getResponse().getFavourite()) {
             action_done.setIcon(getResources().getDrawable(R.drawable.ic_favorite_black_24dp));
-        }else {
+        } else {
             action_done.setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_black_24dp));
         }
 
@@ -192,7 +191,6 @@ public class ViewProductsActivity extends BaseActivity implements ViewProductsMv
             return allProductsResponse.getResponse().getCategories().get(position).getCategoryName();
         }
     }
-
 
 
 }
