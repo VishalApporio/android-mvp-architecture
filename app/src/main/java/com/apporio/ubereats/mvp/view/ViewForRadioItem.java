@@ -1,6 +1,7 @@
 package com.apporio.ubereats.mvp.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -38,12 +39,12 @@ public class ViewForRadioItem {
     ArrayList<Integer> refreshlist;
 
 
-    public ViewForRadioItem(Context context, SelectorDatum selectorDatum, int position, PlaceHolderView placeHolderView,ArrayList arrayList) {
+    public ViewForRadioItem(Context context, SelectorDatum selectorDatum, int position, PlaceHolderView placeHolderView, ArrayList arrayList) {
         this.context = context;
         this.selectorDatum = selectorDatum;
         this.position = position;
         this.placeHolderView = placeHolderView;
-        this.refreshlist=arrayList;
+        this.refreshlist = arrayList;
     }
 
     @Resolve
@@ -55,11 +56,9 @@ public class ViewForRadioItem {
         tv_item_text.setText(selectorDatum.getProductName().toString());
 
 
-        if(refreshlist.get(position)==1)
-        {
+        if (refreshlist.get(position) == 1) {
             radioButton.setChecked(true);
-        }
-        else {
+        } else {
             radioButton.setChecked(false);
         }
     }
@@ -67,36 +66,22 @@ public class ViewForRadioItem {
     @Click(R.id.radio)
     public void onClick() {
 
-        for (int i = 0; i <refreshlist.size() ; i++) {
+        for (int i = 0; i < refreshlist.size(); i++) {
 
-            if(i==position)
-            {
-                if(refreshlist.get(position)==1) {
+            if (i == position) {
+                if (refreshlist.get(position) == 1) {
                     refreshlist.set(i, 0);
-                }
-                else {
+                } else {
                     refreshlist.set(i, 1);
                 }
-            }
-            else {
-                refreshlist.set(i,0);
+            } else {
+                refreshlist.set(i, 0);
             }
 
         }
         placeHolderView.refresh();
 
-//        String radio_id = selectorDatum.getProductId().toString();
-//        placeHolderView.refresh();
-//        placeHolderView.refreshView(position);
-//        if (checked == true) {
-//            radioButton.setChecked(true);
-//            checked = false;
-//
-//        } else {
-//            radioButton.setChecked(false);
-//            checked = true;
-//
-//        }
+        Log.e("RadioSelected", "" + selectorDatum.getProductName().toString());
     }
 
 }
