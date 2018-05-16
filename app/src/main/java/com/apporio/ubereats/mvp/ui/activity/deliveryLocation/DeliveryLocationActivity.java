@@ -25,7 +25,6 @@ import com.apporio.ubereats.mvp.di.others.PlacePredictions;
 import com.apporio.ubereats.mvp.location.LocationManagerClass;
 import com.apporio.ubereats.mvp.location.LocationSession;
 import com.apporio.ubereats.mvp.ui.base.BaseActivity;
-import com.mindorks.placeholderview.annotations.Click;
 
 import java.util.ArrayList;
 
@@ -254,10 +253,10 @@ public class DeliveryLocationActivity extends BaseActivity implements DeliveryLo
     }
 
     @OnClick(R.id.btn_submit)
-    void onClickForSubmitLocation(){
+    void onClickForSubmitLocation() {
 
-        if(!editText_address.getText().toString().equals("")){
-            Log.e("******8Location",""+mGetLocationModelClass.getResult().getGeometry().getLocation().getLat());
+        if (!editText_address.getText().toString().equals("")) {
+            Log.e("******8Location", "" + mGetLocationModelClass.getResult().getGeometry().getLocation().getLat());
 
             Location location = new Location(LocationManager.GPS_PROVIDER);
             location.setLatitude(mGetLocationModelClass.getResult().getGeometry().getLocation().getLat());
@@ -265,10 +264,9 @@ public class DeliveryLocationActivity extends BaseActivity implements DeliveryLo
             locationSession.setLocationLatLong(location);
             locationSession.setLocationAddress(mGetLocationModelClass.getResult().getName().toLowerCase().trim());
             finish();
-        }else {
+        } else {
             showMessage("Please enter your location");
         }
-
 
 
     }

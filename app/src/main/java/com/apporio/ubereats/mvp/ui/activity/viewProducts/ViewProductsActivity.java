@@ -24,6 +24,7 @@ import com.apporio.ubereats.R;
 import com.apporio.ubereats.mvp.data.network.model.allProductresponse.AllProductResponse;
 import com.apporio.ubereats.mvp.ui.base.BaseActivity;
 import com.apporio.ubereats.mvp.ui.fragments.ShowProductsFragment;
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -145,10 +146,10 @@ public class ViewProductsActivity extends BaseActivity implements ViewProductsMv
         } else {
             action_done.setIcon(getResources().getDrawable(R.drawable.ic_favorite_border_black_24dp));
         }
+        Glide.with(this).load("" + allProductsResponse.getResponse().getRestauranentImage().toString()).into(iv_rest_image);
 
         if (getSupportActionBar() != null)
             getSupportActionBar().setTitle(allProductsResponse.getResponse().getRestauranentName().toString());
-
 //        if(!allProductsResponse.getResponse().getRestauranent_image().equals("")){
 //            Glide.with(this).load("" + allProductsResponse.getResponse().getRestauranent_image().toString()).into(iv_rest_image);
 //        }

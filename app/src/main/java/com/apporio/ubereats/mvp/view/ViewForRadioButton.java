@@ -1,6 +1,7 @@
 package com.apporio.ubereats.mvp.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  */
 
 @Layout(R.layout.category_radio_for_dish)
-public class ViewForRadioButton {
+public class ViewForRadioButton{
 
     @View(R.id.place_holder)
     PlaceHolderView place_holder;
@@ -33,11 +34,13 @@ public class ViewForRadioButton {
     int position;
     ArrayList<Integer> arrayList = new ArrayList<>();
     ViewForRadioItem addonView;
+    ArrayList<String> selectorIdList;
 
     public ViewForRadioButton(Context context, CategoryProduct categoryProduct, int position) {
         this.context = context;
         this.categoryProduct = categoryProduct;
         this.position = position;
+        selectorIdList = new ArrayList<>();
     }
 
     @Resolve
@@ -51,10 +54,19 @@ public class ViewForRadioButton {
             ll_required_layout.setVisibility(android.view.View.GONE);
         }
         arrayList.clear();
-        for (int i = 0; i < categoryProduct.getSelectors().get(position).getSelectorData().size(); i++) {
-            arrayList.add(0);
-            addonView = new ViewForRadioItem(context, categoryProduct.getSelectors().get(position).getSelectorData().get(i), i, place_holder,arrayList);
-            place_holder.addView(addonView);
+
+
+        if (categoryProduct.getSelectors().get(position).getSelectorType().equals("checkbox")) {
+            for (int i = 0; i < categoryProduct.getSelectors().get(position).getSelectorData().size(); i++) {
+                place_holder.addView(new ViewForCheckItem(context, categoryProduct.getSelectors().get(position).getSelectorData().get(i), i));
+            }
+        } else {
+            for (int i = 0; i < categoryProduct.getSelectors().get(position).getSelectorData().size(); i++) {
+                arrayList.add(0);
+                // selectorIdList.add("0");
+                addonView = new ViewForRadioItem(context, categoryProduct.getSelectors().get(position).getSelectorData().get(i), i, place_holder, arrayList, selectorIdList);
+                place_holder.addView(addonView);
+            }
         }
     }
 }

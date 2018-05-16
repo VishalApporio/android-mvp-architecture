@@ -45,7 +45,8 @@ public class ViewForCheckButton {
             ll_required_layout.setVisibility(android.view.View.GONE);
         }
         for (int i = 0; i < categoryProduct.getSelectors().get(position).getSelectorData().size(); i++) {
-            place_holder.addView(new ViewForCheckItem(context, categoryProduct.getSelectors().get(position).getSelectorData().get(i), i));
+
+        //    place_holder.addView(new ViewForCheckItem(context, categoryProduct.getSelectors().get(position).getSelectorData().get(i), i));
         }
 
     }

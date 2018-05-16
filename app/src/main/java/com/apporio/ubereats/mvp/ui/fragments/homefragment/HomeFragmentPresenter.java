@@ -45,8 +45,6 @@ public class HomeFragmentPresenter<V extends HomeFragmentMvpView> extends BasePr
                             return;
                         }
                         getMvpView().hideLoading();
-
-
                         getMvpView().updateAllRestauranentsView(response);
 
                     }

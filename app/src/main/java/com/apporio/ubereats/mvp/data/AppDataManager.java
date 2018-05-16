@@ -1,17 +1,4 @@
-/*
- * Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://mindorks.com/license/apache-v2
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License
- */
+
 
 package com.apporio.ubereats.mvp.data;
 
@@ -20,6 +7,7 @@ import android.content.Context;
 
 import com.apporio.ubereats.mvp.data.db.DbHelper;
 import com.apporio.ubereats.mvp.data.db.model.Option;
+import com.apporio.ubereats.mvp.data.db.model.ProductDatadb;
 import com.apporio.ubereats.mvp.data.db.model.Question;
 import com.apporio.ubereats.mvp.data.db.model.User;
 import com.apporio.ubereats.mvp.data.network.ApiHeader;
@@ -54,7 +42,7 @@ import io.reactivex.Single;
 import io.reactivex.functions.Function;
 
 /**
- * Created by janisharali on 27/01/17.
+ * Created by vishal@apporio.com on 27/01/17.
  */
 
 @Singleton
@@ -259,6 +247,11 @@ public class AppDataManager implements DataManager {
     }
 
     @Override
+    public Observable<Boolean> saveProductCount(ProductDatadb productDatadb) {
+        return mDbHelper.saveProductCount(productDatadb);
+    }
+
+    @Override
     public Observable<Boolean> saveOption(Option option) {
         return mDbHelper.saveOption(option);
     }
@@ -340,5 +333,10 @@ public class AppDataManager implements DataManager {
     @Override
     public Single<OpenSourceResponse> getOpenSourceApiCall() {
         return mApiHelper.getOpenSourceApiCall();
+    }
+
+    @Override
+    public Observable<Long> insertProduct(ProductDatadb productDatadb) {
+        return mDbHelper.insertProduct(productDatadb);
     }
 }

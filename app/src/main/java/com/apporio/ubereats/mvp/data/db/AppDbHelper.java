@@ -1,23 +1,11 @@
-/*
- * Copyright (C) 2017 MINDORKS NEXTGEN PRIVATE LIMITED
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://mindorks.com/license/apache-v2
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License
- */
+
 
 package com.apporio.ubereats.mvp.data.db;
 
 import com.apporio.ubereats.mvp.data.db.model.DaoMaster;
 import com.apporio.ubereats.mvp.data.db.model.DaoSession;
 import com.apporio.ubereats.mvp.data.db.model.Option;
+import com.apporio.ubereats.mvp.data.db.model.ProductDatadb;
 import com.apporio.ubereats.mvp.data.db.model.Question;
 import com.apporio.ubereats.mvp.data.db.model.User;
 
@@ -31,7 +19,7 @@ import io.reactivex.Observable;
 
 
 /**
- * Created by janisharali on 08/12/16.
+ * Created by vishal
  */
 
 @Singleton
@@ -106,6 +94,17 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
+    public Observable<Boolean> saveProductCount(final ProductDatadb productDatadb) {
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                mDaoSession.getProductDatadbDao().insert(productDatadb);
+                return true;
+            }
+        });
+    }
+
+    @Override
     public Observable<Boolean> saveOption(final Option option) {
         return Observable.fromCallable(new Callable<Boolean>() {
             @Override
@@ -134,6 +133,20 @@ public class AppDbHelper implements DbHelper {
             public Boolean call() throws Exception {
                 mDaoSession.getOptionDao().insertInTx(optionList);
                 return true;
+            }
+        });
+    }
+
+
+    @Override
+    public Observable<Long> insertProduct(final ProductDatadb productDatadb) {
+        return Observable.fromCallable(new Callable<Long>() {
+            @Override
+            public Long call() throws Exception {
+
+                mDaoSession.queryRaw(ProductDatadb.class, "product_id", "option_cat_id", "", "");
+
+                return mDaoSession.getProductDatadbDao().insert(productDatadb);
             }
         });
     }

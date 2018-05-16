@@ -7,11 +7,15 @@ import android.widget.TextView;
 
 import com.apporio.ubereats.R;
 import com.apporio.ubereats.mvp.data.network.model.allProductresponse.SelectorDatum;
+import com.apporio.ubereats.mvp.di.others.events.GetAllProductInformationEvent;
+import com.apporio.ubereats.mvp.di.others.events.RemoveProductInformationEvent;
 import com.mindorks.placeholderview.PlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -37,14 +41,16 @@ public class ViewForRadioItem {
     boolean checked = true;
     PlaceHolderView placeHolderView;
     ArrayList<Integer> refreshlist;
+    ArrayList<String> selectorIdList;
 
 
-    public ViewForRadioItem(Context context, SelectorDatum selectorDatum, int position, PlaceHolderView placeHolderView, ArrayList arrayList) {
+    public ViewForRadioItem(Context context, SelectorDatum selectorDatum, int position, PlaceHolderView placeHolderView, ArrayList arrayList, ArrayList<String> selectorIdList) {
         this.context = context;
         this.selectorDatum = selectorDatum;
         this.position = position;
         this.placeHolderView = placeHolderView;
         this.refreshlist = arrayList;
+        this.selectorIdList = selectorIdList;
     }
 
     @Resolve
@@ -55,12 +61,19 @@ public class ViewForRadioItem {
         }
         tv_item_text.setText(selectorDatum.getProductName().toString());
 
-
         if (refreshlist.get(position) == 1) {
             radioButton.setChecked(true);
         } else {
             radioButton.setChecked(false);
+//            if (selectorIdList.contains(selectorDatum.getProductId().toString())) {
+//                int f;
+//                f = selectorIdList.indexOf(selectorDatum.getProductId().toString());
+//                selectorIdList.remove(f);
+//            } else {
+//            }
+
         }
+
     }
 
     @Click(R.id.radio)
@@ -71,17 +84,35 @@ public class ViewForRadioItem {
             if (i == position) {
                 if (refreshlist.get(position) == 1) {
                     refreshlist.set(i, 0);
+
+                    if (selectorDatum.getProductPrice().equals("")) {
+                        EventBus.getDefault().post(new RemoveProductInformationEvent(selectorDatum.getProductId(), selectorDatum.getProductName().toString(), selectorDatum.getProductAvailability().toString(), "0"));
+
+                    } else {
+                        EventBus.getDefault().post(new RemoveProductInformationEvent(selectorDatum.getProductId(), selectorDatum.getProductName().toString(), selectorDatum.getProductAvailability().toString(), selectorDatum.getProductPrice().toString()));
+
+                    }
+
                 } else {
                     refreshlist.set(i, 1);
+                    if (selectorDatum.getProductPrice().equals("")) {
+                        EventBus.getDefault().post(new GetAllProductInformationEvent(selectorDatum.getProductId(), selectorDatum.getProductName().toString(), selectorDatum.getProductAvailability().toString(), "0"));
+
+                    } else {
+                        EventBus.getDefault().post(new GetAllProductInformationEvent(selectorDatum.getProductId(), selectorDatum.getProductName().toString(), selectorDatum.getProductAvailability().toString(), selectorDatum.getProductPrice().toString()));
+
+                    }
                 }
             } else {
                 refreshlist.set(i, 0);
-            }
 
+            }
         }
         placeHolderView.refresh();
+        //selectorIdList.set(i, selectorDatum.getProductId().toString());
 
-        Log.e("RadioSelected", "" + selectorDatum.getProductName().toString());
+
+        Log.e("RadioSelected", "" + selectorDatum.getProductName());
+
     }
-
 }
