@@ -4,37 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="50dp">
 
-        <LinearLayout
-            android:id="@+id/ll_delivery_location"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:id="@+id/ll_delivery_location"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Wed 14"
-                android:textColor="@color/color_black"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_schedule_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wed 14"
+            android:textColor="@color/color_black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_location_address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="IRIS TECH PARK"
-                android:textColor="@color/color_black"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tv_location_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="IRIS TECH PARK"
+            android:textColor="@color/color_black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_arrow_drop_down_grey_24dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_arrow_drop_down_grey_24dp" />
 
-        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_cart"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|center"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_shopping_cart_black_24dp" />
+
+
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>

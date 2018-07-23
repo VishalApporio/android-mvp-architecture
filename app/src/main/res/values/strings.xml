@@ -39,6 +39,10 @@
     <string name="some_error">Some Error Occurred!</string>
     <string name="connection_error">Internet connection lost!</string>
 
+    //Track_Ride_Aactivity_Samir
+    <string name="CANCEL_RIDE">Cancel ride</string>
+    <string name="DRIVER_ARRIVED">Driver Arrived</string>
+
     <!--Login-->
     <string name="login_dummy">Login Dummy</string>
     <string name="login">Login</string>
@@ -100,6 +104,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_search">Search</string>
     <string name="menu_orders">Orders</string>
+    <string name="menu_cart">Cart</string>
     <string name="menu_settings">Settings</string>
 
 
@@ -109,7 +114,7 @@
 
 
     /// LoginActivity ///////
-    <string name="LOGIN_ACTIVITY_login_with_text">LOG IN WITH YOUR UBER ACCOUNT</string>
+    <string name="LOGIN_ACTIVITY_login_with_text">LOG IN WITH YOUR TUKIN ACCOUNT</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="text_home">Home Fragment</string>
@@ -117,7 +122,7 @@
     <string name="text_search">Search Fragment</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="google_map_key">AIzaSyCTAg2TXt8AiswL_Ro6k76c_p1bisIWxEU</string>
+    <string name="google_map_key">AIzaSyDfq9aUG9Zpc4I4SqO_PO3L5KMytQT4stk</string>
 
 
     //LocationManagerClass
@@ -131,6 +136,13 @@
         <item>Email ID is invalid</item>
         <item>Password is invalid</item>
     </string-array>
+
+
+    <string name="rationale_ask_again">This app may not work correctly without the requested permissions. Open the app settings screen to modify app permissions.</string>
+    <string name="title_settings_dialog">Permissions Required</string>
+    <string name="title_activity_meter_image">MeterImageActivity</string>
+    <string name="rationale_camera">Feature needs to access your device camera</string>
+    <string name="title_activity_selected_rental_ride">SelectedRentalRideActivity</string>
 
 
 </resources>

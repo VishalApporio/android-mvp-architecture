@@ -42,7 +42,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_toRightOf="@+id/iv_asap"
                 android:text="ASAP (As soon as possible)"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/color_black"
                 android:textSize="16dp" />
 
             <android.support.v7.widget.AppCompatImageView
@@ -82,7 +82,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_toRightOf="@+id/ic_schedule"
                 android:text="Schedule an Order"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/color_black"
                 android:textSize="16dp" />
 
 
@@ -92,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"
+                android:visibility="gone"
                 app:srcCompat="@drawable/ic_check_circle_white_24dp" />
 
 
@@ -104,14 +105,17 @@
             android:background="#EFEFEF"></View>
 
         <LinearLayout
+            android:id="@+id/ll_schedule_layout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <LinearLayout
+                android:id="@+id/ll_schedule_date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -121,7 +125,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Schedule a Date"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/icons_8_muted_green_2_dark"
                     android:textSize="16dp" />
 
             </LinearLayout>
@@ -132,6 +136,7 @@
                 android:background="#EFEFEF" />
 
             <LinearLayout
+                android:id="@+id/ll_schedule_time"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"

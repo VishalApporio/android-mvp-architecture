@@ -68,16 +68,18 @@
 
         <RelativeLayout
             android:id="@+id/rl_product"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp">
 
 
             <ImageView
                 android:id="@+id/iv_product_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/image2" />
 
@@ -100,7 +102,7 @@
 
         <LinearLayout
             android:id="@+id/ll_availability_text"
-            android:layout_width="100dp"
+            android:layout_width="80dp"
             android:layout_height="35dp"
             android:layout_alignParentRight="true"
             android:layout_margin="10dp"

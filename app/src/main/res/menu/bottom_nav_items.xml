@@ -7,12 +7,6 @@
         />
 
     <item
-        android:id="@+id/menu_search"
-        android:title="@string/menu_search"
-        android:icon="@drawable/ic_search_black_24dp"
-        />
-
-    <item
         android:id="@+id/menu_order"
         android:title="@string/menu_orders"
         android:icon="@drawable/ic_menu"

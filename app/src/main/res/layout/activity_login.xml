@@ -60,6 +60,7 @@
                     android:background="@android:color/transparent"
                     android:backgroundTint="@color/REGISTER_ACTIVITY_tint_color"
                     android:hint="name@example.com"
+                    android:inputType="textEmailAddress"
                     android:paddingLeft="20dp"
                     android:textSize="16dp" />
 
@@ -77,6 +78,7 @@
                     android:background="@android:color/transparent"
                     android:backgroundTint="@color/REGISTER_ACTIVITY_tint_color"
                     android:hint="Password"
+                    android:inputType="textPassword"
                     android:paddingLeft="20dp"
                     android:textSize="16dp" />
 

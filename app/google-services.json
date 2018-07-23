@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "1034180105745",
+    "firebase_url": "https://tukinapp.firebaseio.com",
+    "project_id": "tukinapp",
+    "storage_bucket": "tukinapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034180105745:android:d4d48e32c29b6287",
+        "android_client_info": {
+          "package_name": "com.tukin.operator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034180105745-g9jei3lp02kaeljqotj4ptdii00r58qd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM_pq9lmh0DMtsAyjOF_qFr9JLIamBAeM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034180105745:android:429641d0504ecec1",
+        "android_client_info": {
+          "package_name": "com.tukin.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034180105745-g9jei3lp02kaeljqotj4ptdii00r58qd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM_pq9lmh0DMtsAyjOF_qFr9JLIamBAeM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

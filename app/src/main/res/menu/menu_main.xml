@@ -11,6 +11,7 @@
 
     <item android:id="@+id/menu_fav"
         android:icon="@drawable/ic_favorite_black_24dp"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
+        android:visible="false"
         android:title="Favorite" />
 </menu>

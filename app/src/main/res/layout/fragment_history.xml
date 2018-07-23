@@ -5,9 +5,16 @@
     android:background="#FFFFFF"
     android:layout_height="match_parent">
 
-    <include
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/history_order_view"/>
+        android:layout_height="100dp"
+        android:text="No Orders"
+        android:gravity="center"
+        android:layout_gravity="center|top"/>
+
+    <com.mindorks.placeholderview.PlaceHolderView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/place_holder"/>
 
 </RelativeLayout>
